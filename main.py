@@ -88,7 +88,7 @@ class RickWindow(QMainWindow):
     #Options
         
     def themes_options(self, checked):
-        self.themesw = ThemesWindow()
+        self.themesw = ThemesWindow(self)
         self.themesw.show()
         
     # Folders
@@ -168,17 +168,27 @@ class RickWindow(QMainWindow):
 
 
 class ThemesWindow(QWidget):
-    def __init__(self):
+    def __init__(self, parent):
+        self.main = parent
         super().__init__()
-        self.setWindowTitle(f'Themes options')
         uic.loadUi('ui/themes.ui', self)
-        self.update_theme('themes/default_theme.json')
+        self.setWindowTitle(f'Themes options')
+        self.update_theme(self.main.curTheme)
+        self.selectButton.clicked.connect(self.addTheme)
 
-    # Themes
+    def addTheme(self):
+        folder = folder = QFileDialog.getOpenFileName(
+            self, 'Select file', '',
+            'Json theme file (*.json);;Another file type(*)')[0]
+        self.main.curTheme = folder
+        self.main.update_theme(folder)
+        self.update_theme(folder)
+        self.close()
+        
     def update_theme(self, folder):
         theme = eval(open(folder, 'r').read())
         self.highlighter = RickHighlighter(theme, self.codeEdit.document())
-        self.codeEdit.setStyleSheet(f"background-color: {theme['background']};\ncolor: {theme['text']}")
+        self.setStyleSheet(f"background-color: {theme['background']};\ncolor: {theme['text']}")
 
 
 def log_uncaught_exceptions(ex_cls, e, tb):  # Let errors cry

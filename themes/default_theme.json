@@ -1,6 +1,6 @@
 {
-    "background": "#0F0F0F",
-    "text": "#AAAAAA",
+    "background": "white",
+    "text": "black",
     "keyword": format("blue"),
     "keyword2": format("#fd7e00"),
     "keyword3": format("grey", "italic"),
