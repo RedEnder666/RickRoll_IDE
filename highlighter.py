@@ -1,5 +1,10 @@
 from PyQt5 import QtCore, QtGui
 
+def unspace(lst):
+    lst2 = lst[:]
+    for i in lst2:
+        if ' ' in i:
+            lst.append(i.replace(' ', ''))
 
 def format(color, style=''):
     """Return a QTextCharFormat with the given attributes.
@@ -38,18 +43,22 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
     """
     # Rickroll keywords
     keywords = [
-        'ijustwannatelluhowimfeeling', 'give', "py:",
+        'i just wanna tell u how im feeling', 'give', "py:",
         'to_string', 'to_int', 'to_float', 'length'
     ]
     keywords2 = [
-        'andifuaskmehowimfeeling', 'weknowthe',
-        "andwe'regonnaplayit", 'gonna',
-        'whenigivemy', 'itwillbecompletely',
-        'thereaintnomistaking', 'iftheyevergetudown',
-        'desertu', 'runaround', 'togetherforeverandnevertopart',
-        'togetherforeverwith']
+        'and if u ask me how im feeling', 'we know the',
+        "and we're gonna play it", 'gonna',
+        'when i givemy', 'it will be completely',
+        'there aint no mistaking', 'if they ever get u down',
+        'desert u', 'run around', 'together forever and never to part',
+        'together forever with']
     keywords3 = [
-        'takemetourheart', 'saygoodbye']
+        'take me to ur heart', 'say goodbye']
+
+    unspace(keywords)
+    unspace(keywords2)
+    unspace(keywords3)
     
     # Rickroll operators
     operators = [
