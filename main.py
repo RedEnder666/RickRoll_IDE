@@ -7,6 +7,37 @@ import traceback
 from highlighter import *
 # Give imports up
 
+# Syntax styles that can be shared by all languages
+
+def format(color, style=''):
+    """Return a QTextCharFormat with the given attributes.
+    """
+    _color = QtGui.QColor()
+    _color.setNamedColor(color)
+
+    _format = QtGui.QTextCharFormat()
+    _format.setForeground(_color)
+    if 'bold' in style:
+        _format.setFontWeight(QtGui.QFont.Bold)
+    if 'italic' in style:
+        _format.setFontItalic(True)
+
+    return _format
+
+STYLES = {
+    'keyword': format('blue'),
+    'keyword2': format('#fd7e00'),
+    'keyword3': format('grey', 'italic'),
+    'operator': format('red'),
+    'brace': format('darkGray'),
+    'defclass': format('black', 'bold'),
+    'string': format('magenta'),
+    'string2': format('darkMagenta'),
+    'comment': format('darkGreen', 'italic'),
+    'self': format('black', 'italic'),
+    'numbers': format('brown')
+}
+
 # Main window of all programm
 class RickWindow(QMainWindow):
     def __init__(self):
@@ -27,7 +58,7 @@ class RickWindow(QMainWindow):
         self.foldersList.hide()
 
         # Oh yes, preparing code area
-        self.highlighter = RickHighlighter(self.codeEdit.document())
+        self.highlighter = RickHighlighter(STYLES, self.codeEdit.document())
         self.codeEdit.setTabStopDistance(4)
         self.codeEdit.setTabStopWidth(20)
 
@@ -37,13 +68,28 @@ class RickWindow(QMainWindow):
         self.actionSave.triggered.connect(self.saveFile)
         self.actionSave_as.triggered.connect(self.saveFileAs)
         self.actionNew.triggered.connect(self.newFile)
+        self.actionThemes.triggered.connect(self.themes_options)
         self.foldersList.itemDoubleClicked.connect(self.folderClicked)
+        self.update_theme('themes/default_theme.txt')
+
+    # Themes
+    def update_theme(self, folder):
+        theme = eval(open(folder, 'r').read())
+        self.highlighter = RickHighlighter(theme, self.codeEdit.document())
+        self.codeEdit.setStyleSheet(f"background-color: {theme['background']};\ncolor: {theme['text']}")
+        
 
     # Set window title when it has a file
     def setTitle(self):
         self.setWindowTitle(f'{self.curFile.split("/")[-1]} - File in {self.curFolder}')
         self.folder()
 
+    #Options
+        
+    def themes_options(self, checked):
+        self.themesw = ThemesWindow()
+        self.themesw.show()
+        
     # Folders
     
     def folder(self):
@@ -119,7 +165,12 @@ class RickWindow(QMainWindow):
             text = '\n'.join(text.split('\n')[:-1]) + text.split('\n')[-1] + '\n' + tabs * '\t'
             self.codeEdit.setPlainText(text)
 
-        
+
+class ThemesWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle(f'Themes options')
+
 def log_uncaught_exceptions(ex_cls, e, tb):  # Let errors cry
     text = '{}: {}:\n'.format(ex_cls.__name__, e)
 

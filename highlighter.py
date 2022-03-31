@@ -6,36 +6,7 @@ def unspace(lst):
         if ' ' in i:
             lst.append(i.replace(' ', ''))
 
-def format(color, style=''):
-    """Return a QTextCharFormat with the given attributes.
-    """
-    _color = QtGui.QColor()
-    _color.setNamedColor(color)
 
-    _format = QtGui.QTextCharFormat()
-    _format.setForeground(_color)
-    if 'bold' in style:
-        _format.setFontWeight(QtGui.QFont.Bold)
-    if 'italic' in style:
-        _format.setFontItalic(True)
-
-    return _format
-
-
-# Syntax styles that can be shared by all languages
-STYLES = {
-    'keyword': format('blue'),
-    'keyword2': format('orange'),
-    'keyword3': format('grey', 'italic'),
-    'operator': format('red'),
-    'brace': format('darkGray'),
-    'defclass': format('black', 'bold'),
-    'string': format('magenta'),
-    'string2': format('darkMagenta'),
-    'comment': format('darkGreen', 'italic'),
-    'self': format('black', 'italic'),
-    'numbers': format('brown'),
-}
 
 
 class RickHighlighter(QtGui.QSyntaxHighlighter):
@@ -76,7 +47,7 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
         '\{', '\}', '\(', '\)', '\[', '\]',
     ]
 
-    def __init__(self, parent: QtGui.QTextDocument) -> None:
+    def __init__(self, STYLES, parent: QtGui.QTextDocument) -> None:
         super().__init__(parent)
 
         # Multi-line strings (expression, flag, style)
@@ -103,7 +74,7 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
             (r'\bself\b', 0, STYLES['self']),
 
             # 'def' followed by an identifier
-            (r'\bdef\b\s*(\w+)', 1, STYLES['defclass']),
+            (r'\bgonna\b\s*(\w+)', 1, STYLES['defclass']),
             # 'class' followed by an identifier
             (r'\bclass\b\s*(\w+)', 1, STYLES['defclass']),
 
