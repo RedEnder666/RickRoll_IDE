@@ -1,6 +1,8 @@
 # RickRoll_IDE
 IDE for Rickroll lang
 
+<img src="https://imgur.com/icr6IAs">
+
 Rickroll lang: https://github.com/Rick-Lang/rickroll-lang
 
 
