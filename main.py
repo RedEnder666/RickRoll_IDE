@@ -43,9 +43,10 @@ class RickWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        # Folder variables
+        # Variables
         self.curFile = None
         self.curFolder = None
+        self.curTheme = 'themes/default_theme.json'
 
         # Asking how does window feeling
         uic.loadUi('ui/code.ui', self)
@@ -70,13 +71,13 @@ class RickWindow(QMainWindow):
         self.actionNew.triggered.connect(self.newFile)
         self.actionThemes.triggered.connect(self.themes_options)
         self.foldersList.itemDoubleClicked.connect(self.folderClicked)
-        self.update_theme('themes/default_theme.json')
+        self.update_theme(self.curTheme)
 
     # Themes
     def update_theme(self, folder):
         theme = eval(open(folder, 'r').read())
         self.highlighter = RickHighlighter(theme, self.codeEdit.document())
-        self.codeEdit.setStyleSheet(f"background-color: {theme['background']};\ncolor: {theme['text']}")
+        self.setStyleSheet(f"background-color: {theme['background']};\ncolor: {theme['text']}")
         
 
     # Set window title when it has a file
@@ -170,6 +171,15 @@ class ThemesWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle(f'Themes options')
+        uic.loadUi('ui/themes.ui', self)
+        self.update_theme('themes/default_theme.json')
+
+    # Themes
+    def update_theme(self, folder):
+        theme = eval(open(folder, 'r').read())
+        self.highlighter = RickHighlighter(theme, self.codeEdit.document())
+        self.codeEdit.setStyleSheet(f"background-color: {theme['background']};\ncolor: {theme['text']}")
+
 
 def log_uncaught_exceptions(ex_cls, e, tb):  # Let errors cry
     text = '{}: {}:\n'.format(ex_cls.__name__, e)
