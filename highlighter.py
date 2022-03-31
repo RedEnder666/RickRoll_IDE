@@ -1,7 +1,6 @@
 from PyQt5 import QtCore, QtGui
 
 
-
 def format(color, style=''):
     """Return a QTextCharFormat with the given attributes.
     """
@@ -61,6 +60,7 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
         # Arithmetics
         '\+', '-', '\*', '/', '//', '\%', '\*\*'
         ]
+
     
     # Braces
     braces = [

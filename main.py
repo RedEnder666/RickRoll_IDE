@@ -28,8 +28,8 @@ class RickWindow(QMainWindow):
 
         # Oh yes, preparing code area
         self.highlighter = RickHighlighter(self.codeEdit.document())
-        self.codeEdit.setTabStopDistance(16)
-        self.codeEdit.setTabStopWidth(16)
+        self.codeEdit.setTabStopDistance(4)
+        self.codeEdit.setTabStopWidth(20)
 
         # Connecting widgets to events
         self.codeEdit.textChanged.connect(self.return_tabs)
