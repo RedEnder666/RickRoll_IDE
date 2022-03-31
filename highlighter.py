@@ -107,6 +107,11 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
                 # if there is a string we check
                 # if there are some triple quotes within the string
                 # they will be ignored if they are matched again
+                if expression.pattern() == r'#[^\n]*' and expression.pattern() \
+                   in [r'"[^"\\]*(\\.[^"\\]*)*"', r"'[^'\\]*(\\.[^'\\]*)*'"]:
+                    index += 1
+                    expression.indexIn(text, index)
+                    continue
                 if expression.pattern() in [r'"[^"\\]*(\\.[^"\\]*)*"', r"'[^'\\]*(\\.[^'\\]*)*'"]:
                     innerIndex = self.tri_single[0].indexIn(text, index + 1)
                     if innerIndex == -1:

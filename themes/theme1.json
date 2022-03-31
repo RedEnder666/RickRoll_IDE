@@ -1,14 +1,14 @@
 {
     "background": "#252525",
     "text": "#AAA",
-    "keyword": format("blue"),
+    "keyword": format("#247ad6"),
     "keyword2": format("#fd7e00"),
     "keyword3": format("grey", "italic"),
-    "operator": format("red"),
+    "operator": format("#ff3333"),
     "brace": format("darkGray"),
     "defclass": format("white", "bold"),
-    "string": format("magenta"),
-    "string2": format("darkMagenta"),
+    "string": format("#ff33ff"),
+    "string2": format("#ed3cca"),
     "comment": format("darkGreen", "italic"),
     "self": format("black", "italic"),
     "numbers": format("brown")

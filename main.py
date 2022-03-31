@@ -7,7 +7,6 @@ import traceback
 from highlighter import *
 # Give imports up
 
-
 def format(color, style=''):
     """Return a QTextCharFormat with the given attributes.
     """
@@ -73,7 +72,7 @@ class RickWindow(QMainWindow):
         self.actionThemes.triggered.connect(self.themes_options)
         self.foldersList.itemDoubleClicked.connect(self.folderClicked)
         self.update_theme(self.curTheme)
-
+        
     # Themes
     def update_theme(self, folder):
         theme = eval(open(folder, 'r').read())
@@ -141,7 +140,7 @@ class RickWindow(QMainWindow):
         folder = QFileDialog.getSaveFileName(
             self, 'Create file', '',
             'Rickroll script (*.rickroll);;Another file type(*)')[0]
-        with open(folder, 'w') as file:
+        with open(folder, 'w', encoding="utf-8") as file:
             file.write(self.codeEdit.toPlainText())
             self.curFile = folder
             self.curFolder = '/'.join(folder.split('/')[:-1]) + '/'

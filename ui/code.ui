@@ -36,20 +36,20 @@ background-image: url(&quot;src/bg.png&quot;)
      <rect>
       <x>140</x>
       <y>10</y>
-      <width>581</width>
+      <width>661</width>
       <height>581</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>581</width>
-      <height>581</height>
+      <width>0</width>
+      <height>0</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>581</width>
-      <height>581</height>
+      <width>6734856</width>
+      <height>16777215</height>
      </size>
     </property>
     <property name="font">
