@@ -20,7 +20,7 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
     keywords2 = [
         'and if u ask me how im feeling', 'we know the',
         "and we're gonna play it", 'gonna',
-        'when i givemy', 'it will be completely',
+        'when i give my', 'it will be completely',
         'there aint no mistaking', 'if they ever get u down',
         'desert u', 'run around', 'together forever and never to part',
         'together forever with']
