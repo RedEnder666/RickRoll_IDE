@@ -15,7 +15,7 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
     # Rickroll keywords
     keywords = [
         'i just wanna tell u how im feeling', 'give', "py:",
-        'to_string', 'to_int', 'to_float', 'length'
+        'to_string', 'to_int', 'to_float', 'length', 'take me to ur heart', 'say goodbye'
     ]
     keywords2 = [
         'and if u ask me how im feeling', 'we know the',
@@ -24,12 +24,9 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
         'there aint no mistaking', 'if they ever get u down',
         'desert u', 'run around', 'together forever and never to part',
         'together forever with']
-    keywords3 = [
-        'take me to ur heart', 'say goodbye']
 
     unspace(keywords)
     unspace(keywords2)
-    unspace(keywords3)
     
     # Rickroll operators
     operators = [
@@ -61,8 +58,6 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
             for w in self.keywords]
         rules += [(r'\b%s\b' % w, 0, STYLES['keyword2'])
             for w in self.keywords2]
-        rules += [(r'\b%s\b' % w, 0, STYLES['keyword3'])
-            for w in self.keywords3]
         rules += [(r'%s' % o, 0, STYLES['operator'])
             for o in self.operators]
         rules += [(r'%s' % b, 0, STYLES['brace'])

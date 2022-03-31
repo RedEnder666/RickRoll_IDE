@@ -7,8 +7,8 @@
     "operator": format("#ff3333"),
     "brace": format("darkGray"),
     "defclass": format("white", "bold"),
-    "string": format("#ff33ff"),
-    "string2": format("#ed3cca"),
+    "string": format("#ed3cca"),
+    "string2": format("#ff33ff"),
     "comment": format("darkGreen", "italic"),
     "self": format("black", "italic"),
     "numbers": format("brown")
