@@ -70,7 +70,7 @@ class RickWindow(QMainWindow):
         self.actionNew.triggered.connect(self.newFile)
         self.actionThemes.triggered.connect(self.themes_options)
         self.foldersList.itemDoubleClicked.connect(self.folderClicked)
-        self.update_theme('themes/default_theme.txt')
+        self.update_theme('themes/default_theme.json')
 
     # Themes
     def update_theme(self, folder):
