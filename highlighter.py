@@ -1,7 +1,4 @@
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5 import uic
+from PyQt5 import QtCore, QtGui
 
 
 
@@ -35,7 +32,7 @@ STYLES = {
 }
 
 
-class RickHighlighter(QSyntaxHighlighter):
+class RickHighlighter(QtGui.QSyntaxHighlighter):
     """Syntax highlighter for the Python language.
     """
     # Python keywords
@@ -77,11 +74,11 @@ class RickHighlighter(QSyntaxHighlighter):
 
         # Keyword, operator, and brace rules
         rules += [(r'\b%s\b' % w, 0, STYLES['keyword'])
-            for w in PythonHighlighter.keywords]
+            for w in self.keywords]
         rules += [(r'%s' % o, 0, STYLES['operator'])
-            for o in PythonHighlighter.operators]
+            for o in self.operators]
         rules += [(r'%s' % b, 0, STYLES['brace'])
-            for b in PythonHighlighter.braces]
+            for b in self.braces]
 
         # All other rules
         rules += [
