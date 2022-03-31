@@ -7,7 +7,6 @@ import traceback
 from highlighter import *
 # Give imports up
 
-# Syntax styles that can be shared by all languages
 
 def format(color, style=''):
     """Return a QTextCharFormat with the given attributes.
@@ -21,9 +20,10 @@ def format(color, style=''):
         _format.setFontWeight(QtGui.QFont.Bold)
     if 'italic' in style:
         _format.setFontItalic(True)
-
     return _format
 
+
+# Default styles thing
 STYLES = {
     'keyword': format('blue'),
     'keyword2': format('#fd7e00'),
@@ -37,6 +37,7 @@ STYLES = {
     'self': format('black', 'italic'),
     'numbers': format('brown')
 }
+
 
 # Main window of all programm
 class RickWindow(QMainWindow):
