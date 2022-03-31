@@ -21,6 +21,8 @@ def format(color, style=''):
 # Syntax styles that can be shared by all languages
 STYLES = {
     'keyword': format('blue'),
+    'keyword2': format('orange'),
+    'keyword3': format('grey', 'italic'),
     'operator': format('red'),
     'brace': format('darkGray'),
     'defclass': format('black', 'bold'),
@@ -35,30 +37,32 @@ STYLES = {
 class RickHighlighter(QtGui.QSyntaxHighlighter):
     """Syntax highlighter for the Python language.
     """
-    # Python keywords
+    # Rickroll keywords
     keywords = [
-        'and', 'assert', 'break', 'class', 'continue', 'def',
-        'del', 'elif', 'else', 'except', 'exec', 'finally',
-        'for', 'from', 'global', 'if', 'import', 'in',
-        'is', 'lambda', 'not', 'or', 'pass', 'print',
-        'raise', 'return', 'try', 'while', 'yield',
-        'None', 'True', 'False',
+        'ijustwannatelluhowimfeeling', 'give', "py:",
+        'to_string', 'to_int', 'to_float', 'length'
     ]
-
-    # Python operators
+    keywords2 = [
+        'andifuaskmehowimfeeling', 'weknowthe',
+        "andwe'regonnaplayit", 'gonna',
+        'whenigivemy', 'itwillbecompletely',
+        'thereaintnomistaking', 'iftheyevergetudown',
+        'desertu', 'runaround', 'togetherforeverandnevertopart',
+        'togetherforeverwith']
+    keywords3 = [
+        'takemetourheart', 'saygoodbye']
+    
+    # Rickroll operators
     operators = [
-        '=',
+        'up',
         # Comparison
-        '==', '!=', '<', '<=', '>', '>=',
-        # Arithmetic
-        '\+', '-', '\*', '/', '//', '\%', '\*\*',
-        # In-place
-        '\+=', '-=', '\*=', '/=', '\%=',
-        # Bitwise
-        '\^', '\|', '\&', '\~', '>>', '<<',
-    ]
-
-    # Python braces
+        'is', 'aint', 'islessthan', 'islessthanorequalto',
+        'isgreaterthan', 'isgreaterthanorequalto',
+        # Arithmetics
+        '\+', '-', '\*', '/', '//', '\%', '\*\*'
+        ]
+    
+    # Braces
     braces = [
         '\{', '\}', '\(', '\)', '\[', '\]',
     ]
@@ -75,6 +79,10 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
         # Keyword, operator, and brace rules
         rules += [(r'\b%s\b' % w, 0, STYLES['keyword'])
             for w in self.keywords]
+        rules += [(r'\b%s\b' % w, 0, STYLES['keyword2'])
+            for w in self.keywords2]
+        rules += [(r'\b%s\b' % w, 0, STYLES['keyword3'])
+            for w in self.keywords3]
         rules += [(r'%s' % o, 0, STYLES['operator'])
             for o in self.operators]
         rules += [(r'%s' % b, 0, STYLES['brace'])
