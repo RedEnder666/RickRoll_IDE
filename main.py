@@ -92,7 +92,7 @@ class RickWindow(QMainWindow):
 
     # Set window title when it has a file
     def setTitle(self):
-        self.setWindowTitle(f'{self.curFile.split("/")[-1]} - File in {self.curFolder}')
+        self.setWindowTitle(f'{self.curFile.split("/")[-1]} - {self.curFolder}')
         self.folder()
 
     #Options
