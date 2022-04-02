@@ -72,6 +72,9 @@ class RickWindow(QMainWindow):
         self.actionThemes.triggered.connect(self.themes_options)
         self.foldersList.itemDoubleClicked.connect(self.folderClicked)
         self.update_theme(self.curTheme)
+
+        #Keybinds
+        self.actionSave.setShortcut(QtGui.QKeySequence("Ctrl+s"))
         
     # Themes
     def update_theme(self, folder):
@@ -138,7 +141,7 @@ class RickWindow(QMainWindow):
                            
     def saveFileAs(self):
         folder = QFileDialog.getSaveFileName(
-            self, 'Create file', '',
+            self, 'Create file', os.getcwd(),
             'Rickroll script (*.rickroll);;Another file type(*)')[0]
         with open(folder, 'w', encoding="utf-8") as file:
             file.write(self.codeEdit.toPlainText())
@@ -149,7 +152,7 @@ class RickWindow(QMainWindow):
 
     def openFile(self):
         folder = QFileDialog.getOpenFileName(
-            self, 'Select file', '',
+            self, 'Select file', os.getcwd(),
             'Rickroll script (*.rickroll);;Another file type(*)')[0]
         self.codeEdit.setPlainText(open(folder, 'r').read())
         self.codeEdit.show()
@@ -178,7 +181,7 @@ class ThemesWindow(QWidget):
 
     def addTheme(self):
         folder = folder = QFileDialog.getOpenFileName(
-            self, 'Select file', '',
+            self, 'Select file', os.getcwd() + '/themes',
             'Json theme file (*.json);;Another file type(*)')[0]
         self.main.curTheme = folder
         self.main.update_theme(folder)
