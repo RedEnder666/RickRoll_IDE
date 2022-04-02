@@ -75,6 +75,13 @@ class RickWindow(QMainWindow):
 
         #Keybinds
         self.actionSave.setShortcut(QtGui.QKeySequence("Ctrl+s"))
+
+    def resizeEvent(self, event):
+        size = self.size()
+        codepos = self.codeEdit.geometry()
+        folderpos = self.foldersList.geometry()
+        self.codeEdit.resize(self.size().width() - codepos.left() - 20, self.size().height() - codepos.top() - 30)
+        self.foldersList.resize(folderpos.width(), self.size().height() - folderpos.top() - 30)
         
     # Themes
     def update_theme(self, folder):
