@@ -41,6 +41,10 @@ STYLES = {
 
 # Main window of all programm
 class RickWindow(QMainWindow):
+    docs_links = [
+    'https://github.com/Rick-Lang/rickroll-lang/blob/main/doc.md',
+    'https://github.com/Rick-Lang/rickroll-lang/blob/main/doc-Ch.md'
+    ]
     def __init__(self):
         super().__init__()
 
@@ -73,11 +77,14 @@ class RickWindow(QMainWindow):
         self.actionThemes.triggered.connect(self.themes_options)
         self.foldersList.itemDoubleClicked.connect(self.folderClicked)
         self.update_theme(self.curTheme)
+        self.actionEnglish.triggered.connect(lambda: webbrowser.open(self.docs_links[0]))
+        self.actionChinese.triggered.connect(lambda: webbrowser.open(self.docs_links[1]))
         self.actionAbout_IDE.triggered.connect(lambda: webbrowser.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
 
         #Keybinds
         self.actionSave.setShortcut(QtGui.QKeySequence("Ctrl+s"))
-
+        
+        
     def resizeEvent(self, event):
         size = self.size()
         codepos = self.codeEdit.geometry()
