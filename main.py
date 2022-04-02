@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
 import traceback
 from highlighter import *
+import webbrowser
 # Give imports up
 
 def format(color, style=''):
@@ -72,6 +73,7 @@ class RickWindow(QMainWindow):
         self.actionThemes.triggered.connect(self.themes_options)
         self.foldersList.itemDoubleClicked.connect(self.folderClicked)
         self.update_theme(self.curTheme)
+        self.actionAbout_IDE.triggered.connect(lambda: webbrowser.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
 
         #Keybinds
         self.actionSave.setShortcut(QtGui.QKeySequence("Ctrl+s"))
@@ -80,7 +82,7 @@ class RickWindow(QMainWindow):
         size = self.size()
         codepos = self.codeEdit.geometry()
         folderpos = self.foldersList.geometry()
-        self.codeEdit.resize(self.size().width() - codepos.left() - 20, self.size().height() - codepos.top() - 30)
+        self.codeEdit.resize(self.size().width() - codepos.left() - 10, self.size().height() - codepos.top() - 30)
         self.foldersList.resize(folderpos.width(), self.size().height() - folderpos.top() - 30)
         
     # Themes

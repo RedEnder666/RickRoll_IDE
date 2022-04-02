@@ -32,7 +32,7 @@
    <widget class="QTextEdit" name="codeEdit">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>150</x>
       <y>10</y>
       <width>660</width>
       <height>580</height>
@@ -75,7 +75,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QListWidget" name="foldersList">
     <property name="geometry">
      <rect>
-      <x>5</x>
+      <x>10</x>
       <y>10</y>
       <width>131</width>
       <height>581</height>
@@ -119,8 +119,15 @@ p, li { white-space: pre-wrap; }
     </property>
     <addaction name="actionThemes"/>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout_IDE"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOptions"/>
+   <addaction name="menuHelp"/>
   </widget>
   <action name="actionNew">
    <property name="text">
@@ -150,6 +157,11 @@ p, li { white-space: pre-wrap; }
   <action name="actionThemes">
    <property name="text">
     <string>Themes</string>
+   </property>
+  </action>
+  <action name="actionAbout_IDE">
+   <property name="text">
+    <string>About IDE</string>
    </property>
   </action>
  </widget>
