@@ -49,6 +49,7 @@ class RickWindow(QMainWindow):
         super().__init__()
 
         # Variables
+        self.scriptDir = os.path.dirname(os.path.realpath(__file__))
         self.curFile = None
         self.curFolder = None
         self.curTheme = 'themes/default_theme.json'
@@ -58,6 +59,7 @@ class RickWindow(QMainWindow):
 
         # Tell the window how it should feel
         self.setWindowTitle(f'Rickroll IDE')
+        self.setWindowIcon(QtGui.QIcon(self.scriptDir + os.path.sep + 'ui/src/icon.png'))
 
         # Give some shit up
         self.codeEdit.hide()
@@ -67,7 +69,7 @@ class RickWindow(QMainWindow):
         self.highlighter = RickHighlighter(STYLES, self.codeEdit.document())
         self.codeEdit.setTabStopDistance(4)
         self.codeEdit.setTabStopWidth(20)
-
+        
         # Connecting widgets to events
         self.codeEdit.textChanged.connect(self.return_tabs)
         self.actionOpen.triggered.connect(self.openFile)
@@ -80,11 +82,12 @@ class RickWindow(QMainWindow):
         self.actionEnglish.triggered.connect(lambda: webbrowser.open(self.docs_links[0]))
         self.actionChinese.triggered.connect(lambda: webbrowser.open(self.docs_links[1]))
         self.actionAbout_IDE.triggered.connect(lambda: webbrowser.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
-
         #Keybinds
         self.actionSave.setShortcut(QtGui.QKeySequence("Ctrl+s"))
-        
-        
+        self.actionNew.setShortcut(QtGui.QKeySequence("Ctrl+n"))
+        self.actionOpen.setShortcut(QtGui.QKeySequence("Ctrl+o"))
+
+
     def resizeEvent(self, event):
         size = self.size()
         codepos = self.codeEdit.geometry()
