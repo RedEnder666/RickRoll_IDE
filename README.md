@@ -1,7 +1,7 @@
 # RickRoll_IDE
 IDE for Rickroll lang
 
-# LATEST UPDATE
+* LATEST UPDATE
 Keyboard shortcuts, "Help" option.
 
 <img src="https://i.imgur.com/icr6IAs.jpg" align="left"/>
