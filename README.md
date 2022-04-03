@@ -1,3 +1,5 @@
+<img src="https://cdn.discordapp.com/attachments/915761717970096130/959888456673275924/icon.png" align="right" width="200" height="200"/>
+
 # RickRoll_IDE
 IDE for Rickroll lang
 
