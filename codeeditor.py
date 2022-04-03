@@ -31,6 +31,7 @@ try:
     STYLES = eval(open(open('themes/current_theme.txt', 'r').read(), 'r').read())
 except:
     STYLES = {
+    'lines': 'black',
     "background": "white",
     "text": "black",
     "keyword": format("blue"),
@@ -70,7 +71,7 @@ class CodeEditor(QPlainTextEdit):
 	def lineNumberAreaPaintEvent(self, event):
 		painter = QPainter(self.lineNumberArea)
 		#painter.fillRect(event.rect(), Qt.lightGray)
-		painter.setPen(QColor(STYLES['text']))
+		painter.setPen(QColor(STYLES['lines']))
 
 		block = self.firstVisibleBlock()
 		blockNumber = block.blockNumber();
