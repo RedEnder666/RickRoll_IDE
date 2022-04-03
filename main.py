@@ -6,6 +6,8 @@ from PyQt5.QtCore import Qt
 import traceback
 from highlighter import *
 import webbrowser
+import multiprocessing
+from presence import set_discord_rpc_filename, update_presence
 # Give imports up
 
 def format(color, style=''):
@@ -59,6 +61,7 @@ class RickWindow(QMainWindow):
 
         # Tell the window how it should feel
         self.setWindowTitle(f'Rickroll IDE')
+        set_discord_rpc_filename("Rickroll IDE")
         self.setWindowIcon(QtGui.QIcon(self.scriptDir + os.path.sep + 'ui/src/icon.png'))
 
         # Give some shit up
@@ -105,6 +108,8 @@ class RickWindow(QMainWindow):
     # Set window title when it has a file
     def setTitle(self):
         self.setWindowTitle(f'{self.curFile.split("/")[-1]} - {self.curFolder}')
+        set_discord_rpc_filename(self.curFile.split("/")[-1])
+        
         self.folder()
 
     #Options
@@ -150,6 +155,7 @@ class RickWindow(QMainWindow):
         self.codeEdit.show()
         self.foldersList.show()
         self.setWindowTitle(f'Rickroll IDE (New unnamed file)')
+        set_discord_rpc_filename("New unnamed file")
         
     def saveFile(self):
         if not self.curFile:
@@ -195,6 +201,7 @@ class ThemesWindow(QWidget):
         super().__init__()
         uic.loadUi('ui/themes.ui', self)
         self.setWindowTitle(f'Themes options')
+        set_discord_rpc_filename("Themes options")
         self.update_theme(self.main.curTheme)
         self.selectButton.clicked.connect(self.addTheme)
 
@@ -225,6 +232,11 @@ def log_uncaught_exceptions(ex_cls, e, tb):  # Let errors cry
 
 
 if __name__ == '__main__':
+    # Give presence up
+    p = multiprocessing.Process(target=update_presence)
+    p.daemon = True
+    p.start()
+
     never = QApplication(sys.argv)
     sys.excepthook = log_uncaught_exceptions
     gonna = RickWindow()
