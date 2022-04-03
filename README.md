@@ -18,4 +18,4 @@ A comparison of Python IDLE and Rickroll IDE:
 <br>
 <br>
 
-# Thanks to SatinWuker for updating Readme
+* Thanks to SatinWuker for updating Readme
