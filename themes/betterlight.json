@@ -1,0 +1,15 @@
+{
+    "background": "#D3DEDC",
+    "text": "black",
+    "keyword": format("#006778"),
+    "keyword2": format("#FF9500"),  
+    "keyword3": format("grey", "italic"),
+    "operator": format("red"),
+    "brace": format("darkGray"),
+    "defclass": format("black", "bold"),
+    "string": format("#7027A0"),
+    "string2": format("darkMagenta"),
+    "comment": format("darkGreen", "italic"),
+    "self": format("black", "italic"),
+    "numbers": format("brown")
+}
