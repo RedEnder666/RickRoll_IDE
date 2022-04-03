@@ -10,6 +10,8 @@ import multiprocessing
 from presence import set_discord_rpc_filename, update_presence
 # Give imports up
 
+Ui_MainWindow, QtBaseClass = uic.loadUiType('EditorUI.ui')
+
 def format(color, style=''):
     """Return a QTextCharFormat with the given attributes.
     """
@@ -24,20 +26,23 @@ def format(color, style=''):
         _format.setFontItalic(True)
     return _format
 
-
-# Default styles thing
-STYLES = {
-    'keyword': format('blue'),
-    'keyword2': format('#fd7e00'),
-    'keyword3': format('grey', 'italic'),
-    'operator': format('red'),
-    'brace': format('darkGray'),
-    'defclass': format('black', 'bold'),
-    'string': format('magenta'),
-    'string2': format('darkMagenta'),
-    'comment': format('darkGreen', 'italic'),
-    'self': format('black', 'italic'),
-    'numbers': format('brown')
+try:
+    STYLES = eval(open(open('themes/current_theme.txt', 'r').read(), 'r').read())
+except:
+    STYLES = {
+    "background": "white",
+    "text": "black",
+    "keyword": format("blue"),
+    "keyword2": format("#fd7e00"),
+    "keyword3": format("grey", "italic"),
+    "operator": format("red"),
+    "brace": format("darkGray"),
+    "defclass": format("black", "bold"),
+    "string": format("magenta"),
+    "string2": format("darkMagenta"),
+    "comment": format("darkGreen", "italic"),
+    "self": format("black", "italic"),
+    "numbers": format("brown")
 }
 
 
@@ -54,7 +59,7 @@ class RickWindow(QMainWindow):
         self.scriptDir = os.path.dirname(os.path.realpath(__file__))
         self.curFile = None
         self.curFolder = None
-        self.curTheme = 'themes/default_theme.json'
+        self.curTheme = open('themes/current_theme.txt', 'r').read()
 
         # Asking how does window feeling
         uic.loadUi('ui/code.ui', self)
@@ -103,8 +108,9 @@ class RickWindow(QMainWindow):
         theme = eval(open(folder, 'r').read())
         self.highlighter = RickHighlighter(theme, self.codeEdit.document())
         self.setStyleSheet(f"background-color: {theme['background']};\ncolor: {theme['text']}")
-        
-
+        with open('themes/current_theme.txt', 'w') as f:
+            f.write(folder)
+                
     # Set window title when it has a file
     def setTitle(self):
         self.setWindowTitle(f'{self.curFile.split("/")[-1]} - {self.curFolder}')
