@@ -1,0 +1,15 @@
+{
+    "background": "#252525",
+    "text": "yellow",
+    "keyword": format("#247ad6"),
+    "keyword2": format("#fd7e00"),
+    "keyword3": format("grey", "italic"),
+    "operator": format("#ff3333"),
+    "brace": format("darkGray"),
+    "defclass": format("white", "bold"),
+    "string": format("#ed3cca"),
+    "string2": format("#ff33ff"),
+    "comment": format("#4E9F3D", "italic"),
+    "self": format("black", "italic"),
+    "numbers": format("#BB86FC")
+}
