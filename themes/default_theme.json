@@ -1,5 +1,5 @@
 {
-	"lines": "black",
+	"lines": "#AAAAAA",
     "background": "white",
     "text": "black",
     "keyword": format("blue"),

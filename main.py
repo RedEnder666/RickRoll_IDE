@@ -239,7 +239,7 @@ def log_uncaught_exceptions(ex_cls, e, tb):  # Let errors cry
 if __name__ == '__main__':
     # Give presence up
     p = multiprocessing.Process(target=update_presence)
-    p.daemon = True
+    #p.daemon = True
     p.start()
 
     never = QApplication(sys.argv)

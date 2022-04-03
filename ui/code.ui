@@ -46,6 +46,9 @@
     <property name="horizontalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
+    <property name="lineWrapMode">
+     <enum>QPlainTextEdit::NoWrap</enum>
+    </property>
    </widget>
    <widget class="QListWidget" name="foldersList">
     <property name="geometry">
