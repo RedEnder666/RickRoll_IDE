@@ -109,7 +109,6 @@ class RickWindow(QMainWindow):
     def setTitle(self):
         self.setWindowTitle(f'{self.curFile.split("/")[-1]} - {self.curFolder}')
         set_discord_rpc_filename(self.curFile.split("/")[-1])
-        
         self.folder()
 
     #Options
