@@ -17,4 +17,4 @@ A comparison of Python IDLE and Rickroll IDE:
 2. Fix highlighting when you add "#" in string
 <br>
 <br>
-* Thanks to SatinWuker for updating Readme
+# Thanks to SatinWuker for updating Readme
