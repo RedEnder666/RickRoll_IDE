@@ -30,6 +30,7 @@ try:
     STYLES = eval(open(open('themes/current_theme.txt', 'r').read(), 'r').read())
 except:
     STYLES = {
+    "lines": "#AAAAAA",
     "background": "white",
     "text": "black",
     "keyword": format("blue"),
