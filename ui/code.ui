@@ -43,11 +43,20 @@
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>IBeamCursor</cursorShape>
+    </property>
     <property name="horizontalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
     <property name="lineWrapMode">
      <enum>QPlainTextEdit::NoWrap</enum>
+    </property>
+    <property name="backgroundVisible">
+     <bool>false</bool>
+    </property>
+    <property name="centerOnScroll">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QListWidget" name="foldersList">
