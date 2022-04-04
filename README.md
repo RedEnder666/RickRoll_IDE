@@ -10,7 +10,7 @@ Rickroll lang: https://github.com/Rick-Lang/rickroll-lang
 
 A comparison of Python IDLE and Rickroll IDE:
 
-![](https://cdn.discordapp.com/attachments/915761717970096130/959753770072412160/unknown.png)
+![](https://i.imgur.com/kFpVs0h.png)
 
 ## Todo:
 1. "Open recents"
