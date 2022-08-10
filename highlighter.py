@@ -77,14 +77,15 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
             (r'\b[+-]?[0-9]+[lL]?\b', 0, STYLES['numbers']),
             (r'\b[+-]?0[xX][0-9A-Fa-f]+[lL]?\b', 0, STYLES['numbers']),
             (r'\b[+-]?[0-9]+(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?\b', 0, STYLES['numbers']),
+            
+            # From '#' until a newline
+            (r'#[^\n]*', 0, STYLES['comment']),
 
             # Double-quoted string, possibly containing escape sequences
             (r'"[^"\\]*(\\.[^"\\]*)*"', 0, STYLES['string']),
             # Single-quoted string, possibly containing escape sequences
             (r"'[^'\\]*(\\.[^'\\]*)*'", 0, STYLES['string']),
 
-            # From '#' until a newline
-            (r'#[^\n]*', 0, STYLES['comment']),
         ]
 
         # Build a QRegExp for each pattern
