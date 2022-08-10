@@ -3,16 +3,6 @@ from PyQt5.QtGui import QColor, QTextFormat, QPainter
 from PyQt5.QtCore import QRect, pyqtSlot, Qt
 from PyQt5 import uic, QtGui
 
-import sys
-def log_uncaught_exceptions(ex_cls, e, tb):  # Let errors cry
-    text = '{}: {}:\n'.format(ex_cls.__name__, e)
-
-    text += ''.join(traceback.format_tb(tb))
-
-    print(text)
-sys.excepthook = log_uncaught_exceptions
-
-
 def format(color, style=''):
     """Return a QTextCharFormat with the given attributes.
     """
@@ -102,7 +92,7 @@ class CodeEditor(QPlainTextEdit):
 
 	@pyqtSlot(int)
 	def updateLineNumberAreaWidth(self, newBlockCount):
-	    self.setViewportMargins(self.lineNumberAreaWidth(), 0, 0, 0)
+		self.setViewportMargins(self.lineNumberAreaWidth(), 0, 0, 0)
 
 	@pyqtSlot()
 	def highlightCurrentLine(self):
@@ -125,12 +115,3 @@ class CodeEditor(QPlainTextEdit):
 			self.lineNumberArea.update(0, rect.y(), self.lineNumberArea.width(), rect.height())
 		if rect.contains(self.viewport().rect()):
 			self.updateLineNumberAreaWidth(0)
-
-
-if __name__ == '__main__':
-	import sys
-
-	app = QApplication(sys.argv)
-	w = CodeEditor()
-	w.show()
-	sys.exit(app.exec_())
