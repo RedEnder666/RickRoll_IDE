@@ -1,4 +1,4 @@
-import time
+import time, sys
 from pypresence import Presence
 
 
@@ -15,28 +15,31 @@ def set_discord_rpc_filename(text):
 
 
 def update_presence():
-    start_time = time.time()
-    client_id = "960035622272262184"
-    rpc = Presence(client_id)
-    rpc.connect()
+    try:
+        start_time = time.time()
+        client_id = "960035622272262184"
+        rpc = Presence(client_id)
+        rpc.connect()
 
-    while True:
-        global discord_rpc_filename
-        rpc.update(
-            state=f"Editing: {get_discord_rpc_filename()}", 
-            details="Coding using the Rickroll IDE",
-            large_image="rickroll_ide", 
-            large_text="Rick Roll Lang", 
-            buttons=[
-                {
-                    "label":"Totally not a rick roll", 
-                    "url":"https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                }, 
-                {
-                    "label":"Download IDE", 
-                    "url":"https://github.com/RedEnder666/RickRoll_IDE/archive/refs/heads/main.zip"
-                }
-            ], 
-            start=start_time)
-            
-        time.sleep(15)
+        while True:
+            global discord_rpc_filename
+            rpc.update(
+                state=f"Editing: {get_discord_rpc_filename()}", 
+                details="Coding using the Rickroll IDE",
+                large_image="rickroll_ide", 
+                large_text="Rick Roll Lang", 
+                buttons=[
+                    {
+                        "label":"Totally not a rick roll", 
+                        "url":"https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    }, 
+                    {
+                        "label":"Download IDE", 
+                        "url":"https://github.com/RedEnder666/RickRoll_IDE/archive/refs/heads/main.zip"
+                    }
+                ], 
+                start=start_time)
+                
+            time.sleep(15)
+    except:
+        pass

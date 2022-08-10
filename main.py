@@ -8,6 +8,7 @@ from highlighter import *
 import webbrowser
 import multiprocessing
 from presence import set_discord_rpc_filename, update_presence
+from QImageWidget import QImageWidget
 # Give imports up
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType('EditorUI.ui')
@@ -78,6 +79,8 @@ class RickWindow(QMainWindow):
         self.highlighter = RickHighlighter(STYLES, self.codeEdit.document())
         self.codeEdit.setTabStopDistance(4)
         self.codeEdit.setTabStopWidth(20)
+        self.logo = QImageWidget(self, 'ui/src/icon.png')
+        self.show()
         
         # Connecting widgets to events
         self.codeEdit.textChanged.connect(self.return_tabs)
@@ -103,6 +106,9 @@ class RickWindow(QMainWindow):
         folderpos = self.foldersList.geometry()
         self.codeEdit.resize(self.size().width() - codepos.left() - 10, self.size().height() - codepos.top() - 30)
         self.foldersList.resize(folderpos.width(), self.size().height() - folderpos.top() - 30)
+        if not self.codeEdit.isVisible():
+            self.logo.setScale((self.width() // 1.6, self.height() // 1.6), Qt.KeepAspectRatio)
+            self.logo.move((self.width() - self.logo.width()) // 2, (self.height() - self.logo.height()) // 2)
         
     # Themes
     def update_theme(self, folder):
@@ -111,7 +117,7 @@ class RickWindow(QMainWindow):
         self.setStyleSheet(f"background-color: {theme['background']};\ncolor: {theme['text']}")
         with open('themes/current_theme.txt', 'w') as f:
             f.write(folder)
-                
+
     # Set window title when it has a file
     def setTitle(self):
         self.setWindowTitle(f'{self.curFile.split("/")[-1]} - {self.curFolder}')
@@ -160,6 +166,7 @@ class RickWindow(QMainWindow):
         self.codeEdit.setPlainText('')
         self.codeEdit.show()
         self.foldersList.show()
+        self.logo.hide()
         self.setWindowTitle(f'Rickroll IDE (New unnamed file)')
         set_discord_rpc_filename("New unnamed file")
         
@@ -188,6 +195,8 @@ class RickWindow(QMainWindow):
         self.codeEdit.setPlainText(open(folder, 'r').read())
         self.codeEdit.show()
         self.foldersList.show()
+        self.logo.hide()
+
         self.curFile = folder
         self.curFolder = '/'.join(self.curFile.split('/')[:-1]) + '/'
         self.setTitle()

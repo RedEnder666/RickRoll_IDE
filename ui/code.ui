@@ -116,6 +116,7 @@
      </property>
      <addaction name="actionEnglish"/>
      <addaction name="actionChinese"/>
+     <addaction name="actionRussian"/>
     </widget>
     <addaction name="actionAbout_IDE"/>
     <addaction name="menuRickroll_lang_docs"/>
@@ -167,6 +168,11 @@
   <action name="actionChinese">
    <property name="text">
     <string>Chinese</string>
+   </property>
+  </action>
+  <action name="actionRussian">
+   <property name="text">
+    <string>Russian</string>
    </property>
   </action>
  </widget>
