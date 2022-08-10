@@ -9,6 +9,7 @@ import webbrowser
 import multiprocessing
 from presence import set_discord_rpc_filename, update_presence
 from QImageWidget import QImageWidget
+
 # Give imports up
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType('EditorUI.ui')
@@ -107,7 +108,7 @@ class RickWindow(QMainWindow):
         self.codeEdit.resize(self.size().width() - codepos.left() - 10, self.size().height() - codepos.top() - 30)
         self.foldersList.resize(folderpos.width(), self.size().height() - folderpos.top() - 30)
         if not self.codeEdit.isVisible():
-            self.logo.setScale((self.width() // 1.6, self.height() // 1.6), Qt.KeepAspectRatio)
+            self.logo.setScale((self.height() // 1.6, self.height() // 1.6), Qt.KeepAspectRatio)
             self.logo.move((self.width() - self.logo.width()) // 2, (self.height() - self.logo.height()) // 2)
         
     # Themes
@@ -248,6 +249,7 @@ def log_uncaught_exceptions(ex_cls, e, tb):  # Let errors cry
 
 if __name__ == '__main__':
     # Give presence up
+    multiprocessing.freeze_support()
     p = multiprocessing.Process(target=update_presence)
     #p.daemon = True
     p.start()
