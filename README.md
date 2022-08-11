@@ -14,8 +14,7 @@ A comparison of Python IDLE and Rickroll IDE:
 
 ## Todo:
 1. "Open recents"
-2. Fix highlighting when you add "#" in string
-3. Run scripts
+2. Run scripts
 <br>
 <br>
 
