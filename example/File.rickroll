@@ -1,0 +1,8 @@
+takemetourheart
+give sys up __import__("sys")
+give s up __import__("googlesearch")
+give search up s.search
+give query up sys.stdin.readline()
+give a up 0
+i just wanna tell u how im feeling list(search(query, tld="co.in", num=10, stop=10))
+saygoodbye
