@@ -53,7 +53,8 @@ except:
 class RickWindow(QMainWindow):
     docs_links = [
     'https://github.com/Rick-Lang/rickroll-lang/blob/main/doc.md',
-    'https://github.com/Rick-Lang/rickroll-lang/blob/main/doc-Ch.md'
+    'https://github.com/Rick-Lang/rickroll-lang/blob/main/doc-Ch.md',
+    'https://github.com/Rick-Lang/rickroll-lang/blob/main/doc-RU.md'
     ]
     def __init__(self):
         super().__init__()
@@ -94,6 +95,7 @@ class RickWindow(QMainWindow):
         self.update_theme(self.curTheme)
         self.actionEnglish.triggered.connect(lambda: webbrowser.open(self.docs_links[0]))
         self.actionChinese.triggered.connect(lambda: webbrowser.open(self.docs_links[1]))
+        self.actionRussian.triggered.connect(lambda: webbrowser.open(self.docs_links[2]))
         self.actionAbout_IDE.triggered.connect(lambda: webbrowser.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
         #Keybinds
         self.actionSave.setShortcut(QtGui.QKeySequence("Ctrl+s"))
