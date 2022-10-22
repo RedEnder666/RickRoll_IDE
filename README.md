@@ -14,8 +14,9 @@ A comparison of Python IDLE and Rickroll IDE:
 
 ## Todo:
 1. "Open recents"
-2. Run scripts
 <br>
 <br>
 
+## Done from TODO:
+1. Run scripts
 * Thanks to SatinWuker for updating Readme
