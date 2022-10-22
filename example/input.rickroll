@@ -1,12 +1,12 @@
 take me to ur heart
-	give sys up __import__("sys")
-	gonna makeyoucry
-		give name up sys.stdin.readline()
-    	when i give my name itwillbecompletely 
-		saygoodbye
+give sys up __import__("sys")
+gonna makeyoucry
+give name up sys.stdin.readline()
+when i give my name itwillbecompletely 
+saygoodbye
     
 
-    # Prints hello {name}
-    i just wanna tell u how im feeling "hello " + makeyoucry
+# Prints hello {name}
+i just wanna tell u how im feeling "hello " + makeyoucry()
 
 say goodbye

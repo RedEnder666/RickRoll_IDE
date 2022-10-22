@@ -9,8 +9,11 @@ import webbrowser
 import multiprocessing
 from presence import set_discord_rpc_filename, update_presence
 from QImageWidget import QImageWidget
+import subprocess
 
 # Give imports up
+
+
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType('EditorUI.ui')
 
@@ -56,15 +59,14 @@ class RickWindow(QMainWindow):
     'https://github.com/Rick-Lang/rickroll-lang/blob/main/doc-Ch.md',
     'https://github.com/Rick-Lang/rickroll-lang/blob/main/doc-RU.md'
     ]
+    rickroll_folder = open('rcllngdir', 'r').read()
     def __init__(self):
         super().__init__()
-
         # Variables
         self.scriptDir = os.path.dirname(os.path.realpath(__file__))
         self.curFile = None
         self.curFolder = None
         self.curTheme = open('themes/current_theme.txt', 'r').read()
-
         # Asking how does window feeling
         uic.loadUi('ui/code.ui', self)
 
@@ -89,6 +91,7 @@ class RickWindow(QMainWindow):
         self.actionOpen.triggered.connect(self.openFile)
         self.actionSave.triggered.connect(self.saveFile)
         self.actionSave_as.triggered.connect(self.saveFileAs)
+        self.actionSave_as.triggered.connect(self.saveFileAs)
         self.actionNew.triggered.connect(self.newFile)
         self.actionThemes.triggered.connect(self.themes_options)
         self.foldersList.itemDoubleClicked.connect(self.folderClicked)
@@ -96,11 +99,28 @@ class RickWindow(QMainWindow):
         self.actionEnglish.triggered.connect(lambda: webbrowser.open(self.docs_links[0]))
         self.actionChinese.triggered.connect(lambda: webbrowser.open(self.docs_links[1]))
         self.actionRussian.triggered.connect(lambda: webbrowser.open(self.docs_links[2]))
+        self.actionRun_current_script.triggered.connect(self.runscript)
         self.actionAbout_IDE.triggered.connect(lambda: webbrowser.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
         #Keybinds
         self.actionSave.setShortcut(QtGui.QKeySequence("Ctrl+s"))
         self.actionNew.setShortcut(QtGui.QKeySequence("Ctrl+n"))
         self.actionOpen.setShortcut(QtGui.QKeySequence("Ctrl+o"))
+        if self.rickroll_folder == '':
+            self.askforfolder()
+
+    def runscript(self):
+        with open('script.bat', 'w') as f:
+            f.write(f"python -i {self.rickroll_folder} {self.curFile}")
+        subprocess.Popen(f"start script.bat", shell=True)
+        print(f"script {self.curFile} opened via {self.rickroll_folder}")
+
+
+    def askforfolder(self):
+        folder = QFileDialog.getOpenFileName(
+            self, 'Select interpreter (RickRoll.py)', os.getcwd(),
+            'Python script(*.py)')[0]
+        with open('rcllngdir', 'w') as f:
+            f.write(str(folder))
 
 
     def resizeEvent(self, event):

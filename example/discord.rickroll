@@ -3,13 +3,13 @@ take me to ur heart
     give requests up __import__("requests")
 
     # Message
-    give message up "Put Message Here"
+    give message up "This message was sended using script on RickRoll-lang language"
     
     # Discord token
-    give token up "Put your token here"
+    give token up "MzIzNTMzNzM4MTk1NTUwMjA4.G409NPYq8uQKZoavFc13EVM-zBo"
 
-    give channel up Put Channel Id Here (int)
+    give channel up 1030039802084610120
     
-    i just wanna tell u how im feeling requests.post(url=f"https://discord.com/api/v8/channels/{channel}/messages", data = {"content": message}, headers = {"authorization": token}).content
+    i just wanna tell u how im feeling requests.post(url=f"https://discord.com/api/v8/channels/{channel}/messages", data = {"content": message}, headers = {"token": token}).content
 
 say goodbye

@@ -32,8 +32,8 @@ class RickHighlighter(QtGui.QSyntaxHighlighter):
     operators = [
         'up',
         # Comparison
-        'is', 'aint', 'islessthan', 'islessthanorequalto',
-        'isgreaterthan', 'isgreaterthanorequalto',
+        ' is ', ' aint ', ' islessthan ', ' islessthanorequalto ',
+        ' isgreaterthan ', ' isgreaterthanorequalto ',
         # Arithmetics
         '\+', '-', '\*', '/', '//', '\%', '\*\*'
         ]

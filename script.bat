@@ -1,0 +1,1 @@
+python -i E:/Git/rickroll-lang/src-py/RickRoll.py E:/Git/RickRoll_IDE/example/File.rickroll

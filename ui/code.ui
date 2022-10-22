@@ -121,9 +121,16 @@
     <addaction name="actionAbout_IDE"/>
     <addaction name="menuRickroll_lang_docs"/>
    </widget>
+   <widget class="QMenu" name="menuRun">
+    <property name="title">
+     <string>Run</string>
+    </property>
+    <addaction name="actionRun_current_script"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOptions"/>
    <addaction name="menuHelp"/>
+   <addaction name="menuRun"/>
   </widget>
   <action name="actionNew">
    <property name="text">
@@ -173,6 +180,11 @@
   <action name="actionRussian">
    <property name="text">
     <string>Russian</string>
+   </property>
+  </action>
+  <action name="actionRun_current_script">
+   <property name="text">
+    <string>Run current script</string>
    </property>
   </action>
  </widget>
