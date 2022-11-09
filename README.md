@@ -2,7 +2,7 @@
 
 # RickRoll_IDE
 
-IDE for Rickroll lang, a file editor that supports Rickroll-lang syntax highlighting
+IDE for Rickroll lang is a file editor that supports Rickroll-lang syntax highlighting
 <br>
 Rickroll lang: https://github.com/Rick-Lang/rickroll-lang
 
@@ -19,4 +19,6 @@ A comparison of Python IDLE and Rickroll IDE:
 
 ## Done from TODO:
 1. Run scripts
+<br>
+<br>
 * Thanks to SatinWuker for updating Readme
