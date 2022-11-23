@@ -6,7 +6,7 @@ take me to ur heart
     give message up "This message was sended using script on RickRoll-lang language"
     
     # Discord token
-    give token up "MzIzNTMzNzM4MTk1NTUwMjA4.G409NPYq8uQKZoavFc13EVM-zBo"
+    give token up
 
     give channel up 1030039802084610120
     
