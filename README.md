@@ -6,7 +6,9 @@ IDE for Rickroll lang is a file editor that supports Rickroll-lang syntax highli
 <br>
 Rickroll lang: https://github.com/Rick-Lang/rickroll-lang
 
-![image](https://user-images.githubusercontent.com/74973491/206922522-a244d69c-519b-4419-84d2-86b0f5fe34d3.png)
+![image](https://user-images.githubusercontent.com/74973491/218076935-7a0aa482-2769-4100-b557-c5ef529a012e.png)
+![image](https://user-images.githubusercontent.com/74973491/218076989-6383c638-068f-4350-acb9-91aeb6af890e.png)
+![image](https://user-images.githubusercontent.com/74973491/218077070-780897a0-755a-41d3-a275-b006359930d8.png)
 
 A comparison of Python IDLE and Rickroll IDE:
 
