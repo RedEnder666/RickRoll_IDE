@@ -207,7 +207,7 @@ class RickWindow(QMainWindow):
             return
         folder = self.curFolder + event.text()[1:]
         if os.path.isfile(folder):
-            self.codeEdit.setPlainText(open(folder, 'r').read())
+            self.codeEdit.setPlainText(open(folder, 'r', encoding="utf-8").read())
             self.curFile = folder
             self.curFolder = '/'.join(self.curFile.split('/')[:-1]) + '/'
             self.setTitle()
@@ -229,7 +229,7 @@ class RickWindow(QMainWindow):
         if not self.curFile:
             self.saveFileAs()
         else:
-            with open(self.curFile, 'w') as file:
+            with open(self.curFile, 'w', encoding="utf-8") as file:
                 file.write(self.codeEdit.toPlainText())
                            
     def saveFileAs(self):

@@ -2,3 +2,5 @@
 __pycache__
 build
 dist
+rcllngdir
+current_file.txt

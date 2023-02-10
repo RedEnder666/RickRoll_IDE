@@ -1,0 +1,16 @@
+{
+	"lines": "#AAAAAA",
+    "background": "white",
+    "text": "black",
+    "keyword": format("blue"),
+    "keyword2": format("#fd7e00"),
+    "keyword3": format("grey", "italic"),
+    "operator": format("red"),
+    "brace": format("darkGray"),
+    "defclass": format("black", "bold"),
+    "string": format("magenta"),
+    "string2": format("darkMagenta"),
+    "comment": format("darkGreen", "italic"),
+    "self": format("black", "italic"),
+    "numbers": format("brown")
+}
