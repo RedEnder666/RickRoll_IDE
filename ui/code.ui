@@ -125,7 +125,14 @@
     <property name="title">
      <string>Run</string>
     </property>
+    <widget class="QMenu" name="menuInterpreter">
+     <property name="title">
+      <string>Interpreter</string>
+     </property>
+     <addaction name="actionSelInt"/>
+    </widget>
     <addaction name="actionRun_current_script"/>
+    <addaction name="menuInterpreter"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuOptions"/>
@@ -185,6 +192,11 @@
   <action name="actionRun_current_script">
    <property name="text">
     <string>Run current script</string>
+   </property>
+  </action>
+  <action name="actionSelInt">
+   <property name="text">
+    <string>Select interpreter folder</string>
    </property>
   </action>
  </widget>

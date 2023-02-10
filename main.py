@@ -131,6 +131,7 @@ class RickWindow(QMainWindow):
         self.actionRussian.triggered.connect(lambda: webbrowser.open(self.docs_links[2]))
         self.actionRun_current_script.triggered.connect(self.runscript)
         self.actionAbout_IDE.triggered.connect(lambda: webbrowser.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
+        self.actionSelInt.triggered.connect(self.askforfolder)
         #Keybinds
         self.actionSave.setShortcut(QtGui.QKeySequence("Ctrl+s"))
         self.actionNew.setShortcut(QtGui.QKeySequence("Ctrl+n"))
