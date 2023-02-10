@@ -2,20 +2,23 @@
 
 # RickRoll_IDE
 
-IDE for Rickroll lang, a file editor that supports Rickroll-lang syntax highlighting
+IDE for Rickroll lang is a file editor that supports Rickroll-lang syntax highlighting
 <br>
 Rickroll lang: https://github.com/Rick-Lang/rickroll-lang
 
-<img src="https://i.imgur.com/icr6IAs.jpg" width="300" height="300"/>
+![image](https://user-images.githubusercontent.com/74973491/206922522-a244d69c-519b-4419-84d2-86b0f5fe34d3.png)
 
 A comparison of Python IDLE and Rickroll IDE:
 
-![](https://i.imgur.com/kFpVs0h.png)
+![image](https://user-images.githubusercontent.com/74973491/206922574-81450384-8633-4ab1-b851-fc5378d6966c.png)
 
 ## Todo:
 1. "Open recents"
-2. Run scripts
 <br>
 <br>
 
+## Done from TODO:
+1. Run scripts
+<br>
+<br>
 * Thanks to SatinWuker for updating Readme
