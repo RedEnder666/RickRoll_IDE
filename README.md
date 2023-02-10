@@ -29,7 +29,8 @@ Rickroll lang: https://github.com/Rick-Lang/rickroll-lang
 <br>
 
 ## Done from TODO:
-1. Run scripts
+1. Script running
+2. Everything lol
 <br>
 <br>
 * Thanks to SatinWuker for updating Readme
