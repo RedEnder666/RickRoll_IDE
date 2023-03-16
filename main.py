@@ -12,7 +12,6 @@ from QImageWidget import QImageWidget
 import subprocess
 
 # Give imports up
-troll=open("troll","r").readlines()
 Ui_MainWindow, QtBaseClass = uic.loadUiType('EditorUI.ui')
 
 def format(color, style=''):
