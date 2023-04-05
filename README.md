@@ -27,10 +27,11 @@ Rickroll lang: https://github.com/Rick-Lang/rickroll-lang
 1. My laziness
 2. "Open Recents" isn't completed
 3. Read point 1
+<br>
 
 ## Todo:
 1. Finish "Open Recents" feature
-<br>
+
 <br>
 
 ## Done from TODO:
