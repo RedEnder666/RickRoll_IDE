@@ -116,7 +116,7 @@ class RickWindow(QMainWindow):
         self.show()
         
         # Connecting widgets to events
-        self.codeEdit.textChanged.connect(self.return_tabs)
+
         self.actionOpen.triggered.connect(self.openFile)
         self.actionSave.triggered.connect(self.saveFile)
         self.actionSave_as.triggered.connect(self.saveFileAs)
@@ -135,19 +135,7 @@ class RickWindow(QMainWindow):
         self.actionSave.setShortcut(QtGui.QKeySequence("Ctrl+s"))
         self.actionNew.setShortcut(QtGui.QKeySequence("Ctrl+n"))
         self.actionOpen.setShortcut(QtGui.QKeySequence("Ctrl+o"))
-        try:
-            recent_menu = self.menuOpen_recent
-            with open("recents", "r") as f:
-                recents = eval(f.read())
-            for filename in list(recents.keys()):
-                file_path = recents[filename]
-                action = QAction(filename, self)
-                recent_menu.addAction(action)
-                action.triggered.connect(lambda:(self.openf(file_path)))
-                print(file_path)
-        except Exception as e:
-            print(e)
-            open("recents", 'w')
+
 
         if self.rickroll_folder == '':
             self.askforfolder()
@@ -157,18 +145,6 @@ class RickWindow(QMainWindow):
             f.write(f"python -i {self.rickroll_folder} {self.curFile}")
         subprocess.Popen(f"start script.bat", shell=True)
         print(f"script {self.curFile} opened via {self.rickroll_folder}")
-
-    def openf(self, folder):
-        print(folder)
-        if os.path.isfile(folder):
-            self.codeEdit.setPlainText(open(folder, 'r', encoding="utf-8").read())
-            self.curFile = folder
-            self.curFolder = '/'.join(self.curFile.split('/')[:-1]) + '/'
-            self.setTitle()
-        else:
-            self.curFolder = folder + '/'
-            self.folder()
-        print(self.curFolder)
 
     def askforfolder(self):
         folder = QFileDialog.getOpenFileName(
@@ -276,18 +252,9 @@ class RickWindow(QMainWindow):
         self.codeEdit.show()
         self.foldersList.show()
         self.logo.hide()
-
         self.curFile = folder
         self.curFolder = '/'.join(self.curFile.split('/')[:-1]) + '/'
         self.setTitle()
-        
-
-    def return_tabs(self):
-        if False and self.codeEdit.toPlainText()[-1] == '\n' and self.codeEdit.toPlainText()[-2].startswith('\t'):
-            text = self.codeEdit.toPlainText()
-            tabs = self.codeEdit.toPlainText().split('\n')[-2].count('\t')
-            text = '\n'.join(text.split('\n')[:-1]) + text.split('\n')[-1] + '\n' + tabs * '\t'
-            self.codeEdit.setPlainText(text)
 
 
 class ThemesWindow(QWidget):
