@@ -23,8 +23,13 @@ Rickroll lang: https://github.com/Rick-Lang/rickroll-lang
 # Comparison of Python IDLE and Rickroll IDE:
 ![image](https://user-images.githubusercontent.com/74973491/206922574-81450384-8633-4ab1-b851-fc5378d6966c.png)
 
+## Known issiues:
+1. My laziness
+2. "Open Recents" isn't completed
+3. Read point 1
+
 ## Todo:
-1. "Open recents"
+1. Finish "Open Recents" feature
 <br>
 <br>
 
