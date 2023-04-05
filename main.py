@@ -1,4 +1,5 @@
 # imports
+import json
 import sys, os
 from PyQt5 import uic, QtGui
 from PyQt5.QtWidgets import *
@@ -136,6 +137,20 @@ class RickWindow(QMainWindow):
         self.actionSave.setShortcut(QtGui.QKeySequence("Ctrl+s"))
         self.actionNew.setShortcut(QtGui.QKeySequence("Ctrl+n"))
         self.actionOpen.setShortcut(QtGui.QKeySequence("Ctrl+o"))
+        try:
+            recent_menu = self.menuOpen_recent
+            with open("recents", "r") as f:
+                recents = eval(f.read())
+            for filename in list(recents.keys()):
+                file_path = recents[filename]
+                action = QAction(filename, self)
+                recent_menu.addAction(action)
+                action.triggered.connect(lambda:(self.openf(file_path)))
+                print(file_path)
+        except Exception as e:
+            print(e)
+            open("recents", 'w')
+
         if self.rickroll_folder == '':
             self.askforfolder()
 
@@ -145,6 +160,17 @@ class RickWindow(QMainWindow):
         subprocess.Popen(f"start script.bat", shell=True)
         print(f"script {self.curFile} opened via {self.rickroll_folder}")
 
+    def openf(self, folder):
+        print(folder)
+        if os.path.isfile(folder):
+            self.codeEdit.setPlainText(open(folder, 'r', encoding="utf-8").read())
+            self.curFile = folder
+            self.curFolder = '/'.join(self.curFile.split('/')[:-1]) + '/'
+            self.setTitle()
+        else:
+            self.curFolder = folder + '/'
+            self.folder()
+        print(self.curFolder)
 
     def askforfolder(self):
         folder = QFileDialog.getOpenFileName(
@@ -159,6 +185,7 @@ class RickWindow(QMainWindow):
         size = self.size()
         codepos = self.codeEdit.geometry()
         folderpos = self.foldersList.geometry()
+        #self.codeEdit.resize(self.size().width() - codepos.left() - 10, self.size().height() - codepos.top() - 30)
         self.codeEdit.resize(self.size().width() - codepos.left() - 10, self.size().height() - codepos.top() - 30)
         self.foldersList.resize(folderpos.width(), self.size().height() - folderpos.top() - 30)
         if not self.codeEdit.isVisible():

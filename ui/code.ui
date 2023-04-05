@@ -95,10 +95,16 @@
      <addaction name="actionSave"/>
      <addaction name="actionSave_as"/>
     </widget>
+    <widget class="QMenu" name="menuOpen_recent">
+     <property name="title">
+      <string>Open recent</string>
+     </property>
+     <addaction name="separator"/>
+    </widget>
     <addaction name="actionNew"/>
     <addaction name="menuSave"/>
     <addaction name="actionOpen"/>
-    <addaction name="actionOpen_recent"/>
+    <addaction name="menuOpen_recent"/>
    </widget>
    <widget class="QMenu" name="menuOptions">
     <property name="title">
@@ -147,11 +153,6 @@
   <action name="actionOpen">
    <property name="text">
     <string>Open</string>
-   </property>
-  </action>
-  <action name="actionOpen_recent">
-   <property name="text">
-    <string>Open recent</string>
    </property>
   </action>
   <action name="actionSave_as">
