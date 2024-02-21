@@ -1,1 +1,1 @@
-python -i E:/Git/rickroll-lang/src-py/RickRoll.py E:/Git/RickRoll_IDE/example/gpt.rickroll
+python -i E:/Git/rickroll-lang/src-py/RickRoll.py G:/Git/RickRoll_IDE/example/gpt.rickroll

@@ -1,15 +1,10 @@
 take me to ur heart
-    # Same as `import requests` in python
     give requests up __import__("requests")
-
-    # Message
-    give message up "This message was sended using script on RickRoll-lang language"
-    
-    # Discord token
-    give token up KJUjh4356FfjdsTUwMjA4.G409NPYq8uQKZoavFc13EVM-zBo
-
-    give channel up 1030039802084610120
-    
-    i just wanna tell u how im feeling requests.post(url=f"https://discord.com/api/v8/channels/{channel}/messages", data = {"content": message}, headers = {"token": token}).content
-
+    give random up __import__("random")
+    give msg up ['a', "!rank"]
+    give token up "Token"
+    give chnl up 1024323744946204762
+    together forever and never to part
+    i just wanna tell u how im feeling requests.post(url=f"https://discord.com/api/v9/channels/{chnl}/messages", data = {"content": random.choice(msg)}, headers = {"authorization": token}).content
+say goodbye
 say goodbye

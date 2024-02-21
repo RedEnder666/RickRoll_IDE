@@ -118,13 +118,13 @@ class CodeEditor(QPlainTextEdit):
 				leading_spaces = len(block.text()) - len(block.text().lstrip())
 				if leading_spaces > 0:
 					x = self.lineNumberAreaWidth() + font_metrics.averageCharWidth() * leading_spaces // 2
-					painter.drawLine(x-13, top, x-13, bottom)
+					painter.drawLine(x-30, top, x-30, bottom)
 			block = block.next()
 			top = bottom
 			bottom = top + self.blockBoundingRect(block).height()
 
 	def paintEvent(self, event):
-		self.drawIndentationLines()
+		#self.drawIndentationLines()
 		super().paintEvent(event)
 
 	@pyqtSlot(int)

@@ -267,7 +267,10 @@ class ThemesWindow(QWidget):
         uic.loadUi('ui/themes.ui', self)
         self.setWindowTitle(f'Themes options')
         set_discord_rpc_filename("Themes options")
-        self.update_theme(self.main.curTheme)
+        try:
+            self.update_theme(self.main.curTheme)
+        except:
+            pass
         self.selectButton.clicked.connect(self.addTheme)
 
     def addTheme(self):

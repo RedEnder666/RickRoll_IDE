@@ -1,1 +1,1 @@
-E:/Git/RickRoll_IDE/themes/default_theme.json
+G:/Git/RickRoll_IDE/themes/default_theme.json
