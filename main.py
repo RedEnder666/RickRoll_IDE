@@ -269,7 +269,7 @@ class ThemesWindow(QWidget):
         set_discord_rpc_filename("Themes options")
         try:
             self.update_theme(self.main.curTheme)
-        except:
+        except Exception:
             pass
         self.selectButton.clicked.connect(self.addTheme)
 
