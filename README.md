@@ -1,5 +1,3 @@
-<img src="https://cdn.discordapp.com/attachments/915761717970096130/959888456673275924/icon.png" align="right" width="300" height="300"/>
-
 # RickRoll_IDE
 
 IDE for Rickroll lang is a file editor that supports Rickroll-lang syntax highlighting
